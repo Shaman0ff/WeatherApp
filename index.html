@@ -2,21 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Погода</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Погода</h1>
-        <div class="input-container">
-            <input type="text" id="city-input" placeholder="Введите город" />
-            <button id="get-weather-btn">Узнать погоду</button>
+    <div class="container" id="weather-container">
+        <div class="header">
+            <h1 id="city-name">Погода</h1>
         </div>
-        <div id="weather-result" class="weather-result">
-            <!-- Погода будет отображаться здесь -->
+        <div class="input-section">
+            <input type="text" id="city-input" placeholder="Город" />
+            <button id="get-weather-btn">Найти</button>
+        </div>
+        <div class="weather-info" id="weather-result">
+            <!-- Сюда подставится: иконка, температура, описание -->
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
