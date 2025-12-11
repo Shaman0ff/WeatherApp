@@ -2,6 +2,7 @@ const apiKey = 'd664a4fa3cb830cbe01613a5d790d94d';
 const cityInput = document.getElementById('city-input');
 const weatherBtn = document.getElementById('get-weather-btn');
 const weatherResult = document.getElementById('weather-result');
+const cityNameEl = document.getElementById('city-name');
 
 weatherBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
@@ -34,11 +35,15 @@ function displayWeather(data) {
     const { name, main, weather } = data;
     const temp = Math.round(main.temp);
     const description = weather[0].description;
+    const iconCode = weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
     weatherResult.innerHTML = `
-        <h2>${name}</h2>
-        <p class="temp">${temp}°C</p>
-        <p class="desc">${description}</p>
+        <img src="${iconUrl}" alt="Погода" class="weather-icon">
+        <div class="temp">${temp}°</div>
+        <div class="desc">${description}</div>
     `;
-    weatherResult.style.display = 'block';
+
+    cityNameEl.textContent = name;
+    weatherResult.classList.add('visible');
 }
